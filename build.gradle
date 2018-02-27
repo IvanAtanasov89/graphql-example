@@ -7,7 +7,9 @@ mainClassName = 'HelloWorld'
 
 dependencies {
     compile 'com.google.guava:guava:23.0',
-            'com.sparkjava:spark-core:2.7.1'
+            'com.sparkjava:spark-core:2.7.1',
+            'com.graphql-java:graphql-java:6.0'
+
     testCompile 'junit:junit:4.12'
 }
 

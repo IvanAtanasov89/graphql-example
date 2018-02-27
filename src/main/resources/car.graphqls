@@ -1,0 +1,12 @@
+type Car {
+    make: String!
+    model: String!
+}
+
+type Query {
+    allCars: [Car]
+}
+
+schema {
+    query: Query
+}
