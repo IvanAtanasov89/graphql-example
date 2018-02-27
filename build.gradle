@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = 'HelloWorld'
+
+dependencies {
+    compile 'com.google.guava:guava:23.0',
+            'com.sparkjava:spark-core:2.7.1'
+    testCompile 'junit:junit:4.12'
+}
+
+repositories {
+    jcenter()
+}
