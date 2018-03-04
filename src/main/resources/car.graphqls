@@ -3,10 +3,10 @@ type Car {
     model: String!
 }
 
-type Query {
-    allCars: [Car]
+type QueryType {
+    car: Car
 }
 
 schema {
-    query: Query
+    query: QueryType
 }

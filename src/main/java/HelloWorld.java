@@ -1,3 +1,6 @@
+import graphql.ExecutionResult;
+import graphql.GraphQL;
+import graphql.schema.DataFetcher;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.idl.RuntimeWiring;
 import graphql.schema.idl.SchemaGenerator;
@@ -18,24 +21,30 @@ public class HelloWorld {
 
         post("/graphql", (request, response) -> {
             response.type("application/json");
-
-            SchemaParser schemaParser = new SchemaParser();
-            SchemaGenerator schemaGenerator = new SchemaGenerator();
-
-            File schemaFile = getSchemaFile();
-
-            TypeDefinitionRegistry typeRegistry = schemaParser.parse(schemaFile);
-            RuntimeWiring wiring = buildRuntimeWiring();
-            GraphQLSchema graphQLSchema = schemaGenerator.makeExecutableSchema(typeRegistry, wiring);
             return "hello";
-
         });
 
     }
 
+    public static ExecutionResult query(String query) throws Exception {
+        SchemaParser schemaParser = new SchemaParser();
+        SchemaGenerator schemaGenerator = new SchemaGenerator();
+
+        File schemaFile = getSchemaFile();
+
+        TypeDefinitionRegistry typeRegistry = schemaParser.parse(schemaFile);
+        RuntimeWiring wiring = buildRuntimeWiring();
+        GraphQLSchema graphQLSchema = schemaGenerator.makeExecutableSchema(typeRegistry, wiring);
+        GraphQL graphQL = GraphQL.newGraphQL(graphQLSchema).build();
+
+        return graphQL.execute(query);
+    }
+
 
     private static RuntimeWiring buildRuntimeWiring() {
-        return RuntimeWiring.newRuntimeWiring().type(newTypeWiring("Car")).build();
+        return RuntimeWiring.newRuntimeWiring().type(newTypeWiring("QueryType").dataFetcher("car", new CarQuery()))
+                .type(newTypeWiring("Car"))
+                .build();
     }
 
     private static File getSchemaFile() throws Exception {
