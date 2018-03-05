@@ -3,6 +3,7 @@ import graphql.schema.DataFetchingEnvironment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarQuery implements DataFetcher<Car> {
 
@@ -16,6 +17,7 @@ public class CarQuery implements DataFetcher<Car> {
 
     @Override
     public Car get(DataFetchingEnvironment environment) {
-        return cars.get(0);
+        String make = environment.getArgument("make");
+        return cars.stream().filter(c -> c.getMake().equals(make)).collect(Collectors.toList()).get(0);
     }
 }

@@ -4,7 +4,7 @@ type Car {
 }
 
 type QueryType {
-    car: Car
+    car(make: String): Car
 }
 
 schema {
