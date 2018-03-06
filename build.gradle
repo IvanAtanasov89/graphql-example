@@ -3,12 +3,13 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'HelloWorld'
+mainClassName = 'example.Main'
 
 dependencies {
     compile 'com.google.guava:guava:23.0',
             'com.sparkjava:spark-core:2.7.1',
-            'com.graphql-java:graphql-java:6.0'
+            'com.graphql-java:graphql-java:6.0',
+            'com.graphql-java:graphql-java-tools:4.3.0'
 
     testCompile 'junit:junit:4.12'
 }

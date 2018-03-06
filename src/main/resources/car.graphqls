@@ -1,10 +1,19 @@
 type Car {
     make: String!
     model: String!
+    engine: Engine!
+}
+
+type Engine {
+    id: Int!
+    capacity: Int!
+    fuel: String!
 }
 
 type QueryType {
+    engines: [Engine]
     car(make: String): Car
+    cars: [Car]
 }
 
 schema {
