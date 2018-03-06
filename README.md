@@ -2,6 +2,9 @@
 
 Simple example using GraphQL with cars and engines.
 
+Example uses static data stored in the classes within the repositories package.
+This could easily be amended to fetch live data from a database.
+
 ## Run and Query
 
 Start the server up
@@ -16,3 +19,12 @@ Queries:
 - All cars selecting all attributes: http://localhost:4567/graphql?query={cars{make,model,engine{capacity,fuel}}}
 - Find Volkswagon car: http://localhost:4567/graphql?query={car(make:"Volkswagon"){make,model}}
 - All engines: http://localhost:4567/graphql?query={engines{capacity,fuel}}
+
+## Advantages
+
+- Client specifies what fields they want without creating multiple endpoints. Same API different fields returned by app consumer and desktop.
+- Avoids client making multiple calls. e.g Getting an engine ID and then making another call to get the engine details
+- Can see what fields are being requested by consumers, meaning fields can be safely removed
+- Simple, standardized way of retrieving, updating and inserting data
+- Self documenting API with the .graphsql file.
+- 

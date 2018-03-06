@@ -6,7 +6,7 @@ type Car {
 
 type Engine {
     id: Int!
-    capacity: Int!
+    capacity: Int! @deprecated
     fuel: String!
 }
 
