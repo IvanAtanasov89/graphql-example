@@ -27,4 +27,3 @@ Queries:
 - Can see what fields are being requested by consumers, meaning fields can be safely removed
 - Simple, standardized way of retrieving, updating and inserting data
 - Self documenting API with the .graphsql file.
-- 
