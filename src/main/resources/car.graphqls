@@ -1,0 +1,21 @@
+type Car {
+    make: String!
+    model: String!
+    engine: Engine!
+}
+
+type Engine {
+    id: Int!
+    capacity: Int! @deprecated
+    fuel: String!
+}
+
+type QueryType {
+    engines: [Engine]
+    car(make: String): Car
+    cars: [Car]
+}
+
+schema {
+    query: QueryType
+}
