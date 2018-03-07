@@ -22,6 +22,8 @@ Queries:
 
 Or to run queries easier use GraphQL IDE: https://github.com/andev-software/graphql-ide
 
+Just set the environment URL to http://localhost:4567/graphql and the method to get.
+
 ```graphql
 {
   cars {
