@@ -2,6 +2,11 @@
 
 Simple example using GraphQL with cars and engines.
 
+GraphQL allows you to define a schema, describing types and the relationships between the types.
+As well as that you define what queries and mutations can be executed, these are then bound to methods.
+Types can just be mapped to POJOs and as long as getters and setters match the names of the fields within the
+.graphql file, they are automatically mapped.
+
 Example uses static data stored in the classes within the repositories package.
 This could easily be amended to fetch live data from a database.
 
@@ -22,6 +27,8 @@ Queries:
 
 Or to run queries easier use GraphQL IDE: https://github.com/andev-software/graphql-ide
 
+Just set the environment URL to http://localhost:4567/graphql and the method to get.
+
 ```graphql
 {
   cars {
@@ -35,7 +42,7 @@ Or to run queries easier use GraphQL IDE: https://github.com/andev-software/grap
 }
 ```
 
-## Advantages
+## What is good about it
 
 - Client specifies what fields they want without creating multiple endpoints. Same API different fields returned by app consumer and desktop.
 - Avoids client making multiple calls. e.g Getting an engine ID and then making another call to get the engine details
