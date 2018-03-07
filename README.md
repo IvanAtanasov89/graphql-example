@@ -2,6 +2,8 @@
 
 Simple example using GraphQL with cars and engines.
 
+GraphQL just deals with the querying. The HTTP server is run using spark java: http://sparkjava.com/
+
 GraphQL allows you to define a schema, describing types and the relationships between the types.
 As well as that you define what queries and mutations can be executed, these are then bound to methods.
 Types can just be mapped to POJOs and as long as getters and setters match the names of the fields within the
