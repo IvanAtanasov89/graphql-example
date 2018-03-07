@@ -1,6 +1,6 @@
 # graphql-example
 
-Simple example using GraphQL with cars and engines.
+Simple example using [GraphQL](http://graphql.org/) with cars and engines.
 
 GraphQL just deals with the querying. The HTTP server is run using spark java: http://sparkjava.com/
 
