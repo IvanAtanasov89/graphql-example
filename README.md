@@ -20,6 +20,21 @@ Queries:
 - Find Volkswagon car: http://localhost:4567/graphql?query={car(make:"Volkswagon"){make,model}}
 - All engines: http://localhost:4567/graphql?query={engines{capacity,fuel}}
 
+Or to run queries easier use GraphQL IDE: https://github.com/andev-software/graphql-ide
+
+```graphql
+{
+  cars {
+    make
+    model
+    engine {
+      fuel
+      capacity
+    }
+  }
+}
+```
+
 ## Advantages
 
 - Client specifies what fields they want without creating multiple endpoints. Same API different fields returned by app consumer and desktop.
