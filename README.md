@@ -48,6 +48,7 @@ Just set the environment URL to http://localhost:4567/graphql and the method to 
 
 - Client specifies what fields they want without creating multiple endpoints. Same API different fields returned by app consumer and desktop.
 - Avoids client making multiple calls. e.g Getting an engine ID and then making another call to get the engine details
-- Can see what fields are being requested by consumers, meaning fields can be safely removed
+- Can see what fields are being requested by consumers, meaning fields can be safely removed. Suggestion is to not create new versions of an API and instead not making non breaking changes. e.g. Deprecating fields rather than removing until the field is no longer being requested anymore.
 - Simple, standardized way of retrieving, updating and inserting data
 - Self documenting API with the .graphsql file.
+- Can introspect a server endpoint to identify available types, fields, queries and mutations. Also displays which fields are deprecated. Can see this in the documentation tab when using GraphQL IDE.
