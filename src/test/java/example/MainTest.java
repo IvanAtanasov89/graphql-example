@@ -22,4 +22,10 @@ public class MainTest {
         ExecutionResult result = Main.query("{engines{id,capacity}}");
         System.out.println(result.toSpecification());
     }
+
+    @Test
+    public void engineUpdate() throws Exception {
+        ExecutionResult result = Main.query("mutation{updateEngine(id: 1, capacity: 100){id,capacity}}");
+        System.out.println(result.toSpecification());
+    }
 }

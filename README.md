@@ -44,6 +44,17 @@ Just set the environment URL to http://localhost:4567/graphql and the method to 
 }
 ```
 
+and a mutation. Updating an engine
+
+```graphql
+mutation {
+  updateEngine(id: 1, capacity: 200000) {
+    id
+    capacity
+  }
+}
+```
+
 ## What is good about it
 
 - Client specifies what fields they want without creating multiple endpoints. Same API different fields returned by app consumer and desktop.
@@ -52,3 +63,4 @@ Just set the environment URL to http://localhost:4567/graphql and the method to 
 - Simple, standardized way of retrieving, updating and inserting data
 - Self documenting API with the .graphsql file.
 - Can introspect a server endpoint to identify available types, fields, queries and mutations. Also displays which fields are deprecated. Can see this in the documentation tab when using GraphQL IDE.
+- Can easily create mocks of a GraphQL endpoint with tools like: https://github.com/APIs-guru/graphql-faker
