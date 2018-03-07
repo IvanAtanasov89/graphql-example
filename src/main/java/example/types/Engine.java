@@ -3,7 +3,7 @@ package example.types;
 public class Engine {
 
     private final int id;
-    private final int capacity;
+    private int capacity;
     private final String fuel;
 
     public Engine(int id, int capacity, String fuel) {
@@ -14,6 +14,10 @@ public class Engine {
 
     public int getCapacity() {
         return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     public int getId() {

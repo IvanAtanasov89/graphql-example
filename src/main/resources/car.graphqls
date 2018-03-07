@@ -10,12 +10,17 @@ type Engine {
     fuel: String!
 }
 
-type QueryType {
+type Query {
     engines: [Engine]
     car(make: String): Car
     cars: [Car]
 }
 
+type Mutation {
+    updateEngine(id: Int!, capacity: Int!): Engine
+}
+
 schema {
-    query: QueryType
+    query: Query
+    mutation: Mutation
 }

@@ -3,6 +3,7 @@ package example;
 import com.coxautodev.graphql.tools.SchemaParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import example.resolvers.CarResolver;
+import example.resolvers.Mutation;
 import example.resolvers.Query;
 import example.respositories.CarRepository;
 import example.respositories.EngineRepository;
@@ -17,6 +18,9 @@ public class Main {
 
     private static final String QUERY_PARAM_NAME = "query";
     private static final int PORT = 4567;
+
+    private static EngineRepository engineRepository = new EngineRepository();
+    private static CarRepository carRepository = new CarRepository();
 
     public static void main(String[] args) {
         initializeEndpoint();
@@ -33,17 +37,16 @@ public class Main {
     }
 
     public static ExecutionResult query(String query) {
-        CarRepository carRepository = new CarRepository();
-        EngineRepository engineRepository = new EngineRepository();
-        GraphQLSchema schema = createSchema(carRepository, engineRepository);
+        GraphQLSchema schema = createSchema();
         GraphQL graphQL = GraphQL.newGraphQL(schema).build();
         return graphQL.execute(query);
     }
 
-    private static GraphQLSchema createSchema(CarRepository carRepository, EngineRepository engineRepository) {
+    private static GraphQLSchema createSchema() {
         return SchemaParser.newParser()
                 .file("car.graphqls").resolvers(
                         new Query(carRepository, engineRepository),
+                        new Mutation(engineRepository),
                         new CarResolver(engineRepository)
                 ).build().makeExecutableSchema();
     }
