@@ -4,9 +4,13 @@ type Car {
     engine: Engine!
 }
 
+# An engine that can be found in a car
 type Engine {
+    # The unique ID of the engione
     id: Int!
+    # Capacity in litres
     capacity: Int! @deprecated
+    # What fuel does this engine take. e.g Petrol
     fuel: String!
 }
 
