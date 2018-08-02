@@ -18,7 +18,7 @@ public class Mutation implements GraphQLMutationResolver {
         Engine engine = engineRepository.getEngines().stream()
                 .filter(c -> c.getId() == id)
                 .collect(Collectors.toList()).get(0);
-        engine.setCapacity(capacity);
+        engine.setCapacityCubicCent(capacity);
         return engine;
     }
 }

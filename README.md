@@ -23,9 +23,9 @@ Start the server up
 Queries:
 
 - Makes of all cars: http://localhost:4567/graphql?query={cars{make}}
-- All cars selecting all attributes: http://localhost:4567/graphql?query={cars{make,model,engine{capacity,fuel}}}
+- All cars selecting all attributes: http://localhost:4567/graphql?query={cars{make,model,engine{capacityCubicCent,fuel}}}
 - Find Volkswagon car: http://localhost:4567/graphql?query={car(make:"Volkswagon"){make,model}}
-- All engines: http://localhost:4567/graphql?query={engines{capacity,fuel}}
+- All engines: http://localhost:4567/graphql?query={engines{capacityCubicCent,fuel}}
 
 Or to run queries easier use GraphQL IDE: https://github.com/andev-software/graphql-ide
 
@@ -38,7 +38,7 @@ Just set the environment URL to http://localhost:4567/graphql and the method to 
     model
     engine {
       fuel
-      capacity
+      capacityCubicCent
     }
   }
 }
@@ -48,9 +48,9 @@ and a mutation. Updating an engine. Note that it also returns the updated versio
 
 ```graphql
 mutation {
-  updateEngine(id: 1, capacity: 200000) {
+  updateEngine(id: 1, capacityCubicCent: 200000) {
     id
-    capacity
+    capacityCubicCent
   }
 }
 ```
