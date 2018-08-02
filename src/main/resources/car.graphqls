@@ -1,22 +1,35 @@
+enum CapacityUnit {
+    CC
+    LITRES
+}
+
 type Car {
     make: String!
     model: String!
     engine: Engine!
 }
 
+# An engine that can be found in a car
 type Engine {
+    # The unique ID of the engione
     id: Int!
-    capacity: Int! @deprecated
+    # Capacity in the desired unit, CC by default
+    capacity(unit: CapacityUnit=CC): Float! @deprecated
+    # What fuel does this engine take. e.g Petrol
     fuel: String!
 }
 
 type Query {
+    # Get all engines
     engines: [Engine]
+    # Get a specific car for a specific make
     car(make: String): Car
+    # Get all cars
     cars: [Car]
 }
 
 type Mutation {
+    # Update the engine matching the ID
     updateEngine(id: Int!, capacity: Int!): Engine
 }
 
